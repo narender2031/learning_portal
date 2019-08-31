@@ -82,6 +82,8 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'bourbon'
 # user auth
 gem 'devise'
+# user auth jwt token
+gem 'devise-jwt'
 # inviate user
 gem 'devise_invitable'
 # load static pages
