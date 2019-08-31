@@ -1,59 +1,138 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+# ruby
 ruby '2.5.0'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.3'
-# Use postgresql as the database for Active Record
-gem 'pg', '>= 0.18', '< 2.0'
-# Use Puma as the app server
+# rails
+gem 'rails', '~> 5.2.2'
+# puma server
 gem 'puma', '~> 3.11'
-# Use SCSS for stylesheets
+# Saas Rails
 gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
+# Ruby wrapper for UglifyJS JavaScript compressor.
 gem 'uglifier', '>= 1.3.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'mini_racer', platforms: :ruby
-
-# Use CoffeeScript for .coffee assets and views
+# coffe scripts
 gem 'coffee-rails', '~> 4.2'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+# rack core for rest api
+gem 'rack-cors'
+# Json web token
+gem 'jwt'
+# js webppacker
+gem 'webpacker', '~> 3.5'
+# json builder
 gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# bootstrap 
-gem 'bootstrap', '~> 4.3.1'
-# jquery
-gem 'jquery-rails'
-# Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Reduces boot times through caching; required in config/boot.rb
+# serialize the modal data into json format
+gem 'active_model_serializers', '~> 0.10.0'
+# optional support for active record and yml
 gem 'bootsnap', '>= 1.1.0', require: false
-
+# json validator
+gem 'json-schema', '~> 2.7'
+# RuboCop
+# gem 'rubocop', '~> 0.66.0', require: false
+# soft delete
+gem 'paranoia', '~> 2.2'
+# rails-swagger api
+gem 'rswag-api'
+# rails-swagger UI
+gem 'rswag-ui'
+# phone validations
+gem 'phonelib'
+# messaging service
+gem 'twilio-ruby', '~> 5.20.0'
+# s3 bucket
+gem 'aws-sdk-s3', require: false
+# erd diagram
+gem 'rails-erd', group: :development
+# Rubocop rspec
+gem 'rubocop-rspec'
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  # debugger
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+  # consoole
   gem 'web-console', '>= 3.3.0'
+  # listen
   gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # rails preloader. Run rails application at background.
   gem 'spring'
+  # makes Spring watch the filesystem for changes using Listen
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :test do
+  # testing
+  gem 'capybara', '>= 2.15'
+  # test the client side
+  gem 'selenium-webdriver'
+  # supprot of google chrome to run client test
+  gem 'chromedriver-helper'
+end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# admin
+gem 'administrate'
+# bootstrap
+gem 'bootstrap', '~> 4.0.0'
+# store env variable
+gem 'bourbon'
+# user auth
+gem 'devise'
+# inviate user
+gem 'devise_invitable'
+# load static pages
+gem 'high_voltage'
+# postgresql
+gem 'pg'
+# policy
+gem 'pundit'
+# slim client frame work
+gem 'slim-rails'
+# Fake data
+
+group :development do
+  # genrate the active record schema
+  gem 'annotate'
+  # batter error
+  gem 'better_errors'
+  # gaurd
+  gem 'guard-bundler'
+  # guard-rails
+  gem 'guard-rails'
+  # rspec gaurd
+  gem 'guard-rspec'
+  # store env varibale
+  gem 'dotenv-rails'
+  # rails layout
+  gem 'rails_layout'
+  gem 'rb-fchange', require: false
+  gem 'rb-fsevent', require: false
+  gem 'rb-inotify', require: false
+  gem 'spring-commands-rspec'
+end
+
+group :development, :test do
+  # factory bot for specs
+  gem 'factory_bot_rails'
+  # facker for spec, genrate fake data
+  gem 'faker'
+  # Rails swagger spec
+  gem 'rswag-specs'
+  # testing framework
+  gem 'rspec-rails'
+  # matcher rspec
+  gem 'shoulda-matchers', '4.0.0.rc1'
+  # rails controller text
+  gem 'rails-controller-testing' # If you are using Rails 5.x
+end
+
+group :test do
+  # db cleaner specs
+  gem 'database_cleaner'
+  # Launchy is helper class for launching cross-platform application
+  gem 'launchy'
+end
