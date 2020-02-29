@@ -9,7 +9,7 @@ ruby '2.5.0'
 # rails
 gem 'rails', '~> 5.2.2'
 # puma server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 # Saas Rails
 gem 'sass-rails', '~> 5.0'
 # Ruby wrapper for UglifyJS JavaScript compressor.
